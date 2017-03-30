@@ -4,5 +4,9 @@ class MoviesController < ApplicationController
    @movies=Movie.all
  end
 
+ def new
+   @movie=Movie.new
+ end
+
 
 end
