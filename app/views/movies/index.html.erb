@@ -14,6 +14,9 @@
         <td>
           Description
         </td>
+        <td>
+          Creator
+        </td>
       </tr>
     </thead>
     <tbody>
@@ -27,6 +30,9 @@
         </td>
         <td>
           <%=movie.description%>
+        </td>
+        <td>
+          <%=movie.user.email%>
         </td>
         <td>
           <%=link_to("Edit",edit_movie_path(movie),class: "btn btn-sm btn-default")%>
