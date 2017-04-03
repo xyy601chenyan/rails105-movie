@@ -34,11 +34,12 @@
         <td>
           <%=movie.user.email%>
         </td>
-
+        <% if current_user&& current_user==movie.user%>
         <td>
           <%=link_to("Edit",edit_movie_path(movie),class: "btn btn-sm btn-default")%>
           <%=link_to("Delete",movie_path(movie),class: "btn btn-sm btn-default", method: :delete,data: {confirm:"Are you sure?"})%>
         </td>
+        <% end %>
       </tr>
       <% end%>
     </tbody>
