@@ -25,7 +25,7 @@ before_action :find_movie_and_check_permission, only:[:edit,:update,:destroy]
 
 def show
   @movie=Movie.find(params[:id])
-  @reviews=@movie.reviews
+  @reviews=@movie.reviews.order("created_at DESC")
 end
 
 def edit
