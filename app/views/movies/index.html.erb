@@ -17,6 +17,9 @@
         <td>
           Creator
         </td>
+        <td>
+          Operation
+        </td>
       </tr>
     </thead>
     <tbody>
@@ -38,6 +41,10 @@
         <td>
           <%=link_to("Edit",edit_movie_path(movie),class: "btn btn-sm btn-default")%>
           <%=link_to("Delete",movie_path(movie),class: "btn btn-sm btn-default", method: :delete,data: {confirm:"Are you sure?"})%>
+        </td>
+        <% else %>
+        <td>
+          
         </td>
         <% end %>
       </tr>
