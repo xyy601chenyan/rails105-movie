@@ -25,6 +25,7 @@ before_action :find_movie_and_check_permission, only:[:edit,:update,:destroy]
 
 def show
   @movie=Movie.find(params[:id])
+  @reviews=@movie.reviews
 end
 
 def edit
@@ -33,7 +34,7 @@ def edit
 end
 
 def update
-  
+
 
   if @movie.update(movie_params)
   redirect_to movies_path, notice: "Update Success"
