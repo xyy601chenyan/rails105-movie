@@ -1,0 +1,11 @@
+<div class="col-md-12">
+
+  <% if current_user&&current_user==@review.user%>
+  <div class="review">
+    <%=link_to("Edit",edit_movie_review_path(@movie,@review),class: "btn btn-primary pull-right")%>
+  </div>
+  <% end %>
+  <h2><%=@review.content%></h2>
+  <p><%=@review.movie_id%></p>
+  <p><%=@review.user_id%></p>
+</div>

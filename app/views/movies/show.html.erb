@@ -21,13 +21,16 @@
         <th>
           发表时间
         </th>
+       <th>
+         操作
+       </th>
       </tr>
     </thead>
     <tbody>
       <% @reviews.each do |review|%>
       <tr>
         <td>
-          <%=review.content%>
+          <%=link_to(review.content,movie_review_path(@movie,review))%>
 
         </td>
         <td>
@@ -36,8 +39,20 @@
         <td>
           <%=review.created_at%>
         </td>
+        <%if current_user&&current_user==@movie.user%>
+        <td>
+          <%=link_to("Delete",movie_review_path(@movie,review),method: :delete,class:"btn btn-primary btn-sm",data:{confrm:"Are you sure?"})%>
+        </td>
+        <%else%>
+        <td>
+
+        </td>
+        <% end %>
       </tr>
       <% end %>
     </tbody>
   </table>
+  <div class="text-center">
+    <%=will_paginate @reviews%>
+  </div>
 </div>
