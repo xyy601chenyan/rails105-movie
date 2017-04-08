@@ -19,4 +19,8 @@ class Movie < ApplicationRecord
     members.delete(user)
   end
 
+  def reviews_quantity
+    reviews.count
+  end
+
 end

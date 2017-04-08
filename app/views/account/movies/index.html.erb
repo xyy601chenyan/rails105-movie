@@ -1,0 +1,49 @@
+<div class="col-md-12">
+  <h2 class="text-center">我加入的讨论版</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          #
+        </th>
+        <th>
+          电影名
+        </th>
+        <th>
+          电影简介
+        </th>
+        <th>
+         留言数
+        </th>
+        <th>
+          最近更新时间
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @movies.each do |movie|%>
+      <tr>
+
+        <td>
+          #
+        </td>
+        <td>
+          <%=link_to(movie.title,movie_path(movie))%>
+
+        </td>
+        <td>
+          <%=movie.description%>
+        </td>
+        <td>
+          <%=movie.reviews_quantity%>
+        </td>
+        <td>
+          <%=movie.updated_at%>
+        </td>
+      </tr>
+      <% end%>
+    </tbody>
+
+
+  </table>
+</div>

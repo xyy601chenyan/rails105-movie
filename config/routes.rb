@@ -9,8 +9,12 @@ root "movies#index"
      post :join
      post :quit
    end
-   
+
    resources :reviews
+ end
+
+ namespace :account do
+   resources :movies
  end
 
 
