@@ -18,6 +18,9 @@
         <th>
           最近更新时间
         </th>
+        <th colspan="2">
+
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -39,6 +42,12 @@
         </td>
         <td>
           <%=movie.updated_at%>
+        </td>
+        <td>
+          <%=link_to("Edit",edit_movie_path(movie),class:"btn btn-default btn-xs")%>
+        </td>
+        <td>
+          <%=link_to("Delete",movie_path(movie),method: :delete, data:{confirm: "Are you sure?"},class:"btn btn-default btn-xs")%>
         </td>
       </tr>
       <% end%>
