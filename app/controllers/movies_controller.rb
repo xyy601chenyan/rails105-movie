@@ -41,6 +41,7 @@ before_action :find_movie_and_check_permission, only:[:edit,:update,:destroy]
    @movie=Movie.new(movie_params)
    @movie.user=current_user
    if @movie.save
+     current_user.join!(@movie)
    redirect_to movies_path
  else
    render :new
