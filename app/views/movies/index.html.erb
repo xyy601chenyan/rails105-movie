@@ -32,7 +32,7 @@
           <%=link_to(movie.title,movie_path(movie))%>
         </td>
         <td>
-          <%=movie.description%>
+        <%=simple_format(movie.description)%>
         </td>
         <td>
           <%=movie.user.email%>
@@ -44,7 +44,7 @@
         </td>
         <% else %>
         <td>
-          
+
         </td>
         <% end %>
       </tr>
