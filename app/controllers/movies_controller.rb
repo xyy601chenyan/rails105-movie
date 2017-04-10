@@ -1,7 +1,29 @@
 class MoviesController < ApplicationController
-before_action :authenticate_user! , only: [:new,:create,:edit,:update,:destroy,:join,:quit]
+before_action :authenticate_user! , only: [:new,:create,:edit,:update,:destroy,:join,:quit,:collect,:cancel]
 before_action :find_movie_and_check_permission, only:[:edit,:update,:destroy]
 
+
+ def collect
+   @movie=Movie.find(params[:id])
+   if !current_user.has_collected?(@movie)
+     current_user.collect!(@movie)
+     flash[:notice]="收藏成功"
+   else
+     flash[:warning]="你已收藏过该项"
+   end
+   redirect_to movie_path(@movie)
+ end
+
+ def cancel
+   @movie=Movie.find(params[:id])
+   if current_user.has_collected?(@movie)
+     current_user.cancel!(@movie)
+     flash[:alert]="已取消收藏"
+   else
+     flash[:warning]="你并未收藏该项,无法取消收藏"
+   end
+   redirect_to movie_path(@movie)
+ end
 
  def join
    @movie=Movie.find(params[:id])

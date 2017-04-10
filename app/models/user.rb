@@ -24,4 +24,17 @@ class User < ApplicationRecord
   end
 
 
+  def has_collected?(movie)
+    participated_movies.include?(movie)
+  end
+
+  def collect!(movie)
+    participated_movies << movie
+  end
+
+  def cancel!(movie)
+    participated_movies.delete(movie)
+  end
+
+
 end

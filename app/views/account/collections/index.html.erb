@@ -1,0 +1,47 @@
+
+<div class="col-md-12">
+  <h2 class="text-center">我收藏的电影</h2>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>
+          编号
+        </th>
+        <th>
+          电影名
+        </th>
+        <th>
+          电影简介
+        </th>
+        <th>
+          留言数
+        </th>
+        <th>
+         最近更新时间
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @movies.each do |movie| %>
+      <tr>
+        <td>
+          <%=movie.id%>
+
+        </td>
+        <td>
+          <%=link_to(movie.title,movie_path(movie))%>
+        </td>
+        <td>
+          <%=render_movie_description(movie)%>
+        </td>
+        <td>
+          <%=movie.reviews.count%>
+        </td>
+        <td>
+          <%=movie.updated_at%>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

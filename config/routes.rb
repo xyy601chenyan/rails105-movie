@@ -8,6 +8,8 @@ root "movies#index"
    member do
      post :join
      post :quit
+     post :collect
+     post :cancel
    end
 
    resources :reviews
@@ -16,9 +18,10 @@ root "movies#index"
  namespace :account do
    resources :movies
      resources :reviews
+     resources :collections
    end
 
- 
+
 
 
 
