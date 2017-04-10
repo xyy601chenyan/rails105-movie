@@ -23,4 +23,6 @@ class Movie < ApplicationRecord
     reviews.count
   end
 
+  scope :recent,->{order ("created_at DESC")}
+
 end

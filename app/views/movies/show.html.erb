@@ -2,14 +2,17 @@
   <div class="movie">
     <span class="pull-right">
       <% if current_user&&current_user.is_member_of?(@movie)%>
+
       <label  class="label label-success">群组成员</label>
+      <%=link_to("Write a review",new_movie_review_path(@movie),class:"btn btn-default ")%>
       <%=link_to("退出群组",quit_movie_path(@movie),method: :post,class:"btn btn-default")%>
       <% else%>
       <label  class="label label-warning">不是群组成员</label>
       <%=link_to("加入群组",join_movie_path(@movie),method: :post, class:"btn btn-default")%>
       <% end %>
+
     </span>
-    <%=link_to("Write a review",new_movie_review_path(@movie),class:"btn btn-default pull-right")%>
+
   </div>
   <% if current_user&&current_user==@movie.user%>
   <div class="movie">
